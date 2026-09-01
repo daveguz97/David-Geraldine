@@ -6,13 +6,7 @@ import Image from "next/image";
 const PHOTOS = [
   { src: "/images/vigan.jpg", alt: "David and Geraldine in Vigan City" },
   { src: "/images/garden.jpg", alt: "Hidden Garden, Lovers' Corner" },
-  {
-    src: "/images/baguio.jpg",
-    alt: "Burnham Park, Baguio in traditional attire",
-  },
-  { src: "/images/rice.jpg", alt: "By the rice fields in Ilocos" },
   { src: "/images/proposal.jpg", alt: "The proposal" },
-  { src: "/images/airport.jpg", alt: "Airport reunion" },
 ];
 
 export default function Carousel() {
