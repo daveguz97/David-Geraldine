@@ -23,7 +23,7 @@ export default function Home() {
             <h1 className="script hero-names">
               David Alexander
               <span className="hero-amp">and</span>
-              Geraldine S.
+              Geraldine
             </h1>
             <div className="hero-rule"></div>
             <p className="hero-date">SUNDAY · MARCH 28, 2027</p>
