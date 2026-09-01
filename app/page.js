@@ -20,7 +20,7 @@ export default function Home() {
               TOGETHER WITH OUR FAMILIES YOU ARE INVITED TO OUR WEDDING
             </p>
             <h1 className="script hero-names">
-              David Alexander
+              David
               <span className="hero-amp">and</span>
               Geraldine
             </h1>
