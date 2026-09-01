@@ -3,7 +3,7 @@ import "./globals.css";
 export const metadata = {
   title: "David & Geraldine — March 28, 2027",
   description:
-    "Together with their families, David Alexander Guzman and Geraldine S. Galleto invite you to their wedding. March 28, 2027 — Legaspi, Galimuyod, Ilocos Sur, Philippines.",
+    "Together with our families, you are invited to our wedding",
 };
 
 export default function RootLayout({ children }) {
