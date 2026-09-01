@@ -20,7 +20,8 @@ const RETURN_URL = "https://your-live-domain.com/thankyou";
 
 export default function RsvpForm() {
   const [values, setValues] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     attending: "",
     guests: "1",
@@ -35,7 +36,8 @@ export default function RsvpForm() {
 
   function validate() {
     const next = {
-      name: values.name.trim().length === 0,
+      firstName: values.firstName.trim().length === 0,
+      lastName: values.lastName.trim().length === 0,
       email: !EMAIL_RE.test(values.email.trim()),
       attending: values.attending !== "yes" && values.attending !== "no",
       guests: values.guests === "" || Number(values.guests) < 1,
@@ -53,9 +55,6 @@ export default function RsvpForm() {
     }
   }
 
-  const [firstName, ...rest] = values.name.trim().split(" ");
-  const lastName = rest.join(" ") || firstName || "";
-
   return (
     <form
       id="rsvp-form"
@@ -68,28 +67,46 @@ export default function RsvpForm() {
       <input type="hidden" name="retURL" value={RETURN_URL} />
       <input type="hidden" name="lead_source" value="Wedding Site" />
       <input type="hidden" name="company" value="Wedding Guest" />
-      {/* Salesforce needs first/last name split; kept in sync with the
-          single "Full Name" field the guest actually sees below. */}
-      <input type="hidden" name="first_name" value={firstName || ""} />
-      <input type="hidden" name="last_name" value={lastName} />
 
       <div className="field">
-        <label htmlFor="f-name">FULL NAME</label>
+        <label htmlFor="f-first-name">FIRST NAME</label>
         <input
-          id="f-name"
+          id="f-first-name"
+          name="first_name"
           type="text"
-          autoComplete="name"
+          autoComplete="given-name"
           required
-          aria-describedby="err-name"
-          className={errors.name ? "invalid" : ""}
-          value={values.name}
-          onChange={(e) => update("name", e.target.value)}
+          aria-describedby="err-first-name"
+          className={errors.firstName ? "invalid" : ""}
+          value={values.firstName}
+          onChange={(e) => update("firstName", e.target.value)}
         />
         <p
-          className={"field-error" + (errors.name ? " show" : "")}
-          id="err-name"
+          className={"field-error" + (errors.firstName ? " show" : "")}
+          id="err-first-name"
         >
           First name is required.
+        </p>
+      </div>
+
+      <div className="field">
+        <label htmlFor="f-last-name">LAST NAME</label>
+        <input
+          id="f-last-name"
+          name="last_name"
+          type="text"
+          autoComplete="family-name"
+          required
+          aria-describedby="err-last-name"
+          className={errors.lastName ? "invalid" : ""}
+          value={values.lastName}
+          onChange={(e) => update("lastName", e.target.value)}
+        />
+        <p
+          className={"field-error" + (errors.lastName ? " show" : "")}
+          id="err-last-name"
+        >
+          Last name is required.
         </p>
       </div>
 
