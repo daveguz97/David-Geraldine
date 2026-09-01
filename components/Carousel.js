@@ -7,6 +7,9 @@ const PHOTOS = [
   { src: "/images/vigan.jpg", alt: "David and Geraldine in Vigan City" },
   { src: "/images/garden.jpg", alt: "Hidden Garden, Lovers' Corner" },
   { src: "/images/proposal.jpg", alt: "The proposal" },
+  { src: "/images/baguio-viewpoint.jpg", alt: "Overlooking the hills in Baguio" },
+  { src: "/images/rocks.jpg", alt: "Perched on the rocks together" },
+  { src: "/images/breathe-baguio.jpg", alt: "At the #breatheBaguio sign" },
 ];
 
 export default function Carousel() {
