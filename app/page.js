@@ -17,8 +17,7 @@ export default function Home() {
         <section id="hero">
           <div className="hero-frame">
             <p className="eyebrow-invite">
-              TOGETHER WITH THEIR FAMILIES · YOU ARE WARMLY INVITED TO THE
-              WEDDING OF
+              TOGETHER WITH OUR FAMILIES YOU ARE INVITED TO OUR WEDDING
             </p>
             <h1 className="script hero-names">
               David Alexander
