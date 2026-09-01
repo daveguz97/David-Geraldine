@@ -16,7 +16,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //    names Salesforce gives you (they look like "00N5f00000XXXXX").
 // ---------------------------------------------------------------------
 const ORG_ID = "00Dak00001C8bfv";
-const RETURN_URL = "https://david-geraldine-wedding.vercel.app/thankyou";
+const RETURN_URL = "https://david-geraldine.vercel.app/thankyou";
 
 export default function RsvpForm() {
   const [values, setValues] = useState({
