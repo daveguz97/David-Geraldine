@@ -6,17 +6,15 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // ---------------------------------------------------------------------
 // WEB-TO-LEAD SETUP (Setup > Web-to-Lead > Create Web-to-Lead Form):
-// 1. Replace ORG_ID below with your Salesforce Org ID.
-// 2. Replace RETURN_URL with your site's live /thankyou URL once hosted
-//    (must be a full absolute URL, e.g. "https://davidandgeraldine.netlify.app/thankyou" —
-//    Salesforce redirects the browser here after a real submission, and a
-//    relative path won't resolve correctly from Salesforce's domain).
-// 3. If you add custom fields in Salesforce for Attending / Guest Count,
-//    swap the "attending" / "guests" input names below for the real API
-//    names Salesforce gives you (they look like "00N5f00000XXXXX").
+// Attending / Guest Count are custom Lead fields, so Web-to-Lead requires
+// their real Salesforce field IDs (not "attending"/"guests") below.
+// The Attending picklist's values in Salesforce are "Yes"/"No" (capitalized) —
+// the <option> values below must match exactly or Salesforce drops the field.
 // ---------------------------------------------------------------------
 const ORG_ID = "00Dak00001C8bfv";
 const RETURN_URL = "https://david-geraldine.vercel.app/thankyou";
+const ATTENDING_FIELD = "00Nak00004rXk9M";
+const GUEST_COUNT_FIELD = "00Nak00004reVJ3";
 
 export default function RsvpForm() {
   const [values, setValues] = useState({
@@ -39,7 +37,7 @@ export default function RsvpForm() {
       firstName: values.firstName.trim().length === 0,
       lastName: values.lastName.trim().length === 0,
       email: !EMAIL_RE.test(values.email.trim()),
-      attending: values.attending !== "yes" && values.attending !== "no",
+      attending: values.attending !== "Yes" && values.attending !== "No",
       guests: values.guests === "" || Number(values.guests) < 1,
     };
     setErrors(next);
@@ -135,7 +133,7 @@ export default function RsvpForm() {
         <label htmlFor="f-attend">WILL YOU BE JOINING US?</label>
         <select
           id="f-attend"
-          name="attending"
+          name={ATTENDING_FIELD}
           required
           aria-describedby="err-attend"
           className={errors.attending ? "invalid" : ""}
@@ -145,8 +143,8 @@ export default function RsvpForm() {
           <option value="" disabled>
             Choose one
           </option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
         </select>
         <p
           className={"field-error" + (errors.attending ? " show" : "")}
@@ -160,7 +158,7 @@ export default function RsvpForm() {
         <label htmlFor="f-guests">NUMBER OF GUESTS (INCLUDING YOU)</label>
         <input
           id="f-guests"
-          name="guests"
+          name={GUEST_COUNT_FIELD}
           type="number"
           min="1"
           max="10"
