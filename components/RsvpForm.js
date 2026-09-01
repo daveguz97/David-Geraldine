@@ -15,12 +15,14 @@ const ORG_ID = "00Dak00001C8bfv";
 const RETURN_URL = "https://david-geraldine.vercel.app/thankyou";
 const ATTENDING_FIELD = "00Nak00004rXk9M";
 const GUEST_COUNT_FIELD = "00Nak00004reVJ3";
+const TRAVELING_FROM_FIELD = "00Nak00004th0r4";
 
 export default function RsvpForm() {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    travelingFrom: "",
     attending: "",
     guests: "1",
     message: "",
@@ -37,6 +39,9 @@ export default function RsvpForm() {
       firstName: values.firstName.trim().length === 0,
       lastName: values.lastName.trim().length === 0,
       email: !EMAIL_RE.test(values.email.trim()),
+      travelingFrom:
+        values.travelingFrom !== "United States" &&
+        values.travelingFrom !== "Philippines",
       attending: values.attending !== "Yes" && values.attending !== "No",
       guests: values.guests === "" || Number(values.guests) < 1,
     };
@@ -126,6 +131,46 @@ export default function RsvpForm() {
           id="err-email"
         >
           A valid email is required.
+        </p>
+      </div>
+
+      <div className="field">
+        <label id="f-travel-label">WHERE ARE YOU TRAVELING FROM?</label>
+        <input type="hidden" name={TRAVELING_FROM_FIELD} value={values.travelingFrom} />
+        <div
+          className="toggle-group"
+          role="group"
+          aria-labelledby="f-travel-label"
+          aria-describedby="err-travel"
+        >
+          <button
+            type="button"
+            className={
+              "toggle-btn" +
+              (values.travelingFrom === "United States" ? " active" : "")
+            }
+            aria-pressed={values.travelingFrom === "United States"}
+            onClick={() => update("travelingFrom", "United States")}
+          >
+            United States
+          </button>
+          <button
+            type="button"
+            className={
+              "toggle-btn" +
+              (values.travelingFrom === "Philippines" ? " active" : "")
+            }
+            aria-pressed={values.travelingFrom === "Philippines"}
+            onClick={() => update("travelingFrom", "Philippines")}
+          >
+            Philippines
+          </button>
+        </div>
+        <p
+          className={"field-error" + (errors.travelingFrom ? " show" : "")}
+          id="err-travel"
+        >
+          Please let us know where you&apos;re traveling from.
         </p>
       </div>
 

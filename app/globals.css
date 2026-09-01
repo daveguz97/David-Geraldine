@@ -272,6 +272,23 @@ section{padding:clamp(4rem,10vw,7rem) clamp(1.25rem,6vw,3rem);max-width:1060px;m
   color:#B4444C;
 }
 .field-error.show{display:block}
+.toggle-group{display:flex;gap:.7rem}
+.toggle-btn{
+  flex:1;
+  font-family:inherit;font-size:1rem;letter-spacing:.04em;
+  color:var(--gold-text);background:#FFFEFB;
+  border:1px solid var(--blush-deep);border-radius:2px;
+  padding:.75em .9em;cursor:pointer;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.toggle-btn:hover{border-color:var(--gold)}
+.toggle-btn:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.toggle-btn.active{
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  color:#FFF8E7;border-color:var(--gold);
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px -10px rgba(185,143,62,.7);
+}
 .btn{
   display:inline-block;width:100%;
   background:linear-gradient(180deg,var(--gold-light),var(--gold));
@@ -329,3 +346,40 @@ footer p{margin-top:.6em;letter-spacing:.18em;font-size:.9rem}
   border-bottom:1px solid var(--gold);padding-bottom:2px;
 }
 .back-link:hover{color:var(--gold-text)}
+
+/* ---------- 404 page ---------- */
+.notfound-wrap{
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 15% 10%, #FBE9ED 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 90%, #F6DCE2 0%, transparent 50%),
+    var(--ivory);
+}
+.notfound-card{
+  border:1px solid var(--gold-light);
+  outline:1px solid var(--gold-light);
+  outline-offset:6px;
+  background:rgba(255,253,248,.92);
+  padding:clamp(2.4rem,8vw,4.5rem) clamp(1.6rem,7vw,4rem);
+  max-width:560px;
+  text-align:center;
+  position:relative;z-index:1;
+}
+.notfound-icon{
+  display:inline-block;font-size:2.6rem;
+  animation:wander 3.8s ease-in-out infinite;
+}
+@keyframes wander{
+  0%,100%{transform:translate(0,0) rotate(-6deg)}
+  50%{transform:translate(6px,-4px) rotate(6deg)}
+}
+.notfound-code{
+  font-size:clamp(3.2rem,13vw,5.5rem);
+  color:var(--gold-text);letter-spacing:.04em;line-height:1;
+  margin-top:.3em;
+}
+.notfound-title{font-size:clamp(2rem,7vw,2.6rem);color:var(--gold-text);margin-top:.15em}
+.notfound-card p{margin-top:1.1em;font-size:clamp(1.02rem,3.2vw,1.2rem)}
