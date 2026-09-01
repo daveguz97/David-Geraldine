@@ -15,8 +15,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //    swap the "attending" / "guests" input names below for the real API
 //    names Salesforce gives you (they look like "00N5f00000XXXXX").
 // ---------------------------------------------------------------------
-const ORG_ID = "";
-const RETURN_URL = "https://your-live-domain.com/thankyou";
+const ORG_ID = "00Dak00001C8bfv";
+const RETURN_URL = "https://david-geraldine-wedding.vercel.app/thankyou";
 
 export default function RsvpForm() {
   const [values, setValues] = useState({
