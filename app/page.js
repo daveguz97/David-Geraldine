@@ -49,9 +49,8 @@ export default function Home() {
 
         <section id="verse">
           <blockquote>
-            &quot;And now these three remain: faith, hope and love. But the
-            greatest of these is love.&quot;
-            <cite>1 CORINTHIANS 13:13</cite>
+            &quot;I have found the one whom my soul loves.&quot;
+            <cite>SONG OF SOLOMON 3:4</cite>
           </blockquote>
         </section>
 
