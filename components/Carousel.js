@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const PHOTOS = [
-  { src: "/images/vigan.jpg", alt: "David and Geraldine in Vigan City" },
+  { src: "/images/vigan.jpg", alt: "Us in Vigan City" },
   { src: "/images/garden.jpg", alt: "Hidden Garden, Lovers' Corner" },
-  { src: "/images/proposal.jpg", alt: "The proposal" },
+  { src: "/images/proposal.jpg", alt: "Our proposal" },
   { src: "/images/villa-vitalis.jpg", alt: "Overlooking the hills at Villa Vitalis" },
   { src: "/images/rocks.jpg", alt: "Perched on the rocks together" },
   { src: "/images/breathe-baguio.jpg", alt: "At the #breatheBaguio sign" },

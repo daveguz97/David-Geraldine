@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Thank You — David & Geraldine",
   description:
-    "Thank you for your RSVP to David and Geraldine's wedding, March 28, 2027.",
+    "Thank you for your RSVP to our wedding, March 28, 2027.",
 };
 
 export default function ThankYou() {

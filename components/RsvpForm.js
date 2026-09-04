@@ -222,7 +222,7 @@ export default function RsvpForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="f-msg">A MESSAGE FOR THE COUPLE (OPTIONAL)</label>
+        <label htmlFor="f-msg">A MESSAGE FOR US (OPTIONAL)</label>
         <textarea
           id="f-msg"
           name="description"
